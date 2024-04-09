@@ -49,6 +49,7 @@ public class OAuthClientTest {
         client.setCredentials(CLIENT_VALID, CLIENT_SECRET);
         client.setTokenEndpoint(BASE_URI + ENDPOINT_TOKEN);
         client.setValidateEndpoint(BASE_URI + ENDPOINT_VALIDATE);
+        client.setScope("api://test/.default");
 
         return client;
     }
@@ -156,6 +157,7 @@ public class OAuthClientTest {
         assertEquals(client.clientSecret, CLIENT_SECRET);
         assertEquals(client.tokenEndpoint, BASE_URI + ENDPOINT_TOKEN);
         assertEquals(client.validateEndpoint, BASE_URI + ENDPOINT_VALIDATE);
+        assertEquals(client.scope, "api://test/.default");
         assertEquals(client.accessToken, null);
     }
 

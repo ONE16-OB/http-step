@@ -369,6 +369,7 @@ public class HttpBuilder {
             String tokenEndpoint = options.containsKey("oauthTokenEndpoint") ? options.get("oauthTokenEndpoint").toString() : null;
             String validateEndpoint = options.containsKey("oauthValidateEndpoint") ? options.get("oauthValidateEndpoint").toString() : null;
             String clientId = options.containsKey("username") ? options.get("username").toString() : null;
+            String scope = options.containsKey("scope") ? options.get("scope").toString() : null;
             String clientSecret = password;
 
 
@@ -391,12 +392,14 @@ public class HttpBuilder {
                     log.log(5,"Found existing OAuth client with key " + clientKey);
                     client = this.oauthClients.get(clientKey);
                     client.setCredentials(clientId, clientSecret);
+                    client.setScope(scope);
                     client.setValidateEndpoint(validateEndpoint);
                 } else {
                     // Create a brand new client
                     log.log(5,"Creating new OAuth client with key " + clientKey);
                     client = new OAuthClient(OAuthClient.GrantType.CLIENT_CREDENTIALS, log);
                     client.setCredentials(clientId, clientSecret);
+                    client.setScope(scope);
                     client.setTokenEndpoint(tokenEndpoint);
                     client.setValidateEndpoint(validateEndpoint);
                 }

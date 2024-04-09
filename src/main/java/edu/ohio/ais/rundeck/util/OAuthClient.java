@@ -33,6 +33,7 @@ public class OAuthClient {
     public static final String FORM_CONTENT_TYPE = "application/x-www-form-urlencoded";
 
     public static final String FIELD_GRANT_TYPE = "grant_type";
+    public static final String FIELD_SCOPE = "scope";
     public static final String FIELD_ACCESS_TOKEN = "access_token";
 
     public static final Integer STATUS_SUCCESS = 200;
@@ -55,6 +56,7 @@ public class OAuthClient {
     String clientSecret;
 
     GrantType grantType;
+    String scope;
 
     String tokenEndpoint;
     String validateEndpoint;
@@ -75,6 +77,7 @@ public class OAuthClient {
         this.log = log;
 
         this.grantType = grantType;
+        this.scope = "";
     }
 
     /**
@@ -121,6 +124,7 @@ public class OAuthClient {
 
         List<NameValuePair> params = new ArrayList<>();
         params.add(new BasicNameValuePair(FIELD_GRANT_TYPE, this.grantType.name().toLowerCase()));
+        params.add(new BasicNameValuePair(FIELD_SCOPE, this.scope.toLowerCase()));
 
         HttpUriRequest request = RequestBuilder.create("POST")
                 .setUri(this.tokenEndpoint)
@@ -226,6 +230,11 @@ public class OAuthClient {
 
         this.clientId = clientId;
         this.clientSecret = clientSecret;
+    }
+
+    public void setScope(String scope) {
+        log.log(5, "Setting scope to " + scope);
+        this.scope = scope;
     }
 
     /**
