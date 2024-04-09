@@ -62,7 +62,7 @@ public class HttpWorkflowStepPlugin implements StepPlugin, Describable, ProxySec
      */
     @Override
     public Description getDescription() {
-        return new HttpDescription(SERVICE_PROVIDER_NAME, "HTTP Request Step", "Performs an HTTP request with or without authentication").getDescription();
+        return new HttpDescription(SERVICE_PROVIDER_NAME, "HTTP Request Step - WITH AUTH SCOPE", "Performs an HTTP request with or without authentication").getDescription();
     }
 
     @Override

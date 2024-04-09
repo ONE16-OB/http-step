@@ -369,7 +369,7 @@ public class HttpBuilder {
             String tokenEndpoint = options.containsKey("oauthTokenEndpoint") ? options.get("oauthTokenEndpoint").toString() : null;
             String validateEndpoint = options.containsKey("oauthValidateEndpoint") ? options.get("oauthValidateEndpoint").toString() : null;
             String clientId = options.containsKey("username") ? options.get("username").toString() : null;
-            String scope = options.containsKey("scope") ? options.get("scope").toString() : null;
+            String scope = options.containsKey("scope") ? options.get("scope").toString() : "";
             String clientSecret = password;
 
 

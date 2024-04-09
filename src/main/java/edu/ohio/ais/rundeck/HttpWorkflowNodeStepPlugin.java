@@ -50,7 +50,7 @@ public class HttpWorkflowNodeStepPlugin implements NodeStepPlugin, Describable, 
 
     @Override
     public Description getDescription() {
-        return new HttpDescription(SERVICE_PROVIDER_NAME, "HTTP Request Node Step", "Performs an HTTP request with or without authentication (per node)").getDescription();
+        return new HttpDescription(SERVICE_PROVIDER_NAME, "HTTP Request Node Step - WITH AUTH SCOPE", "Performs an HTTP request with or without authentication (per node)").getDescription();
     }
 
 
