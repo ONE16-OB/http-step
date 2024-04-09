@@ -1,3 +1,6 @@
+Fork that adds an optional scope to the OAuth2 Authentication section of the workflow step
+
+
 # Rundeck HTTP Workflow Step Plugin
 This plugin provides a way to send HTTP requests as part of
 a [Rundeck](http://rundeck.org) workflow step. It is somewhat
